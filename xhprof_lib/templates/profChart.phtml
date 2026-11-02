@@ -19,7 +19,7 @@
    },
    tooltip: {
       formatter: function() {
-         return '<b>'+ this.point.name +'</b>: '+ this.y + 'ms';
+         return '<b>'+ this.point.name +'</b>: '+ this.y + 's';
       }
    },
    plotOptions: {
@@ -68,7 +68,7 @@
                     $other+= $dataPoint['excl_wt'];
                 }else
                 {
-                    echo "['" . addslashes($dataPoint['fn']) . "', {$dataPoint['excl_wt']}],\n";
+									echo json_encode([ preg_replace('/#.+$/ms', '', $dataPoint['fn']), $dataPoint['excl_wt'] ]).',';
                 }
             }
             echo "['Other', $other]";

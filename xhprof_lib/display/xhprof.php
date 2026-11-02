@@ -278,24 +278,24 @@ $format_cbk = array(
                       "ct" => "xhprof_count_format",
                       "Calls%" => "xhprof_percent_format",
 
-                      "wt" => "number_format",
+                      "wt" => "formatSec",
                       "IWall%" => "xhprof_percent_format",
-                      "excl_wt" => "number_format",
+                      "excl_wt" => "formatSec",
                       "EWall%" => "xhprof_percent_format",
 
-                      "ut" => "number_format",
+                      "ut" => "formatSec",
                       "IUser%" => "xhprof_percent_format",
-                      "excl_ut" => "number_format",
+                      "excl_ut" => "formatSec",
                       "EUser%" => "xhprof_percent_format",
 
-                      "st" => "number_format",
+                      "st" => "formatSec",
                       "ISys%" => "xhprof_percent_format",
-                      "excl_st" => "number_format",
+                      "excl_st" => "formatSec",
                       "ESys%" => "xhprof_percent_format",
 
-                      "cpu" => "number_format",
+                      "cpu" => "formatSec",
                       "ICpu%" => "xhprof_percent_format",
-                      "excl_cpu" => "number_format",
+                      "excl_cpu" => "formatSec",
                       "ECpu%" => "xhprof_percent_format",
 
                       "mu" => "number_format",

@@ -1,0 +1,18 @@
+.unit {
+	color:#a5afb8;
+}
+
+.box-tables thead {
+	cursor: pointer;
+}
+.box-tables thead tr:hover th {
+	background:#a5afb8;
+}
+
+.box-tables tbody {
+	display: none;
+}
+
+.box-tables tbody td {
+	vertical-align: top;
+}

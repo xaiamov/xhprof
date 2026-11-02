@@ -6,10 +6,6 @@ require_once XHPROF_CONFIG;
 include_once XHPROF_LIB_ROOT . '/display/xhprof.php';
 include (XHPROF_LIB_ROOT . "/utils/common.php");
 
-if (false !== $controlIPs && !in_array($_SERVER['REMOTE_ADDR'], $controlIPs))
-{
-  die("You do not have permission to view this page.");
-}
 
 unset($controlIPs);
 
@@ -167,7 +163,7 @@ if(isset($_GET['run1']) || isset($_GET['run']))
     {
         $url = urlencode($row['url']);
         $html['url'] = htmlentities($row['url'], ENT_QUOTES, 'UTF-8');
-        echo "\t<tr><td><a href=\"?geturl={$url}\">{$html['url']}</a></td><td>{$row['count']}</td><td>" . number_format($row['total_wall']) . " ms</td><td>" . number_format($row['avg_wall']) . " ms</td></tr>\n";
+        echo "\t<tr><td><a href=\"?geturl={$url}\">{$html['url']}</a></td><td>{$row['count']}</td><td>" . formatSec($row['total_wall']/1000) . "</td><td>" . formatSec($row['avg_wall']/1000) . "</td></tr>\n";
     }
     echo "</tbody>\n";
     echo "</table>\n";

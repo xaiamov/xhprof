@@ -5,7 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<title>XHGui: Hierarchical Profiler Report</title>
 <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400" rel="stylesheet">
-<link href='css/xhprof.css' rel='stylesheet'  type='text/css'></link>
+<link href='css/xhprof.css?<?=filemtime('../../xhprof_html/css/xhprof.css')?>' rel='stylesheet'  type='text/css'></link>
+<link href='css/xh.css?<?=filemtime('../../xhprof_html/css/xh.css')?>' rel='stylesheet'  type='text/css'></link>
 <link href="css/tablesorter.pager.css" rel="stylesheet" type="text/css" />
 <link href='third-party/jquery/jquery.tooltip.css'  rel='stylesheet' type='text/css'></link>
 <link href='third-party/jquery/jquery.autocomplete.css'  rel='stylesheet' type='text/css'></link>
@@ -16,6 +17,7 @@
 <script src='third-party/jquery/tablesorter.min.js' type="text/javascript"></script>
 <script src='third-party/jquery/tablesorter.pager.js' type="text/javascript"></script>
 <script src='third-party/highcharts/highcharts.js' type="text/javascript"></script>
+<script src='js/xh.js?<?=filemtime('../../xhprof_html/js/xh.js')?>' type="text/javascript"></script>
 
 <?php
 if (isset($_xh_header))

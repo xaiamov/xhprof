@@ -32,10 +32,6 @@
 require_once dirname(dirname(__FILE__)) . '/xhprof_lib/defaults.php';
 require_once XHPROF_CONFIG;
 
-if (false !== $controlIPs && !in_array($_SERVER['REMOTE_ADDR'], $controlIPs))
-{
-  die("You do not have permission to view this page.");
-}
 
 include_once XHPROF_LIB_ROOT . '/display/xhprof.php';
 

@@ -7,10 +7,14 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQ
     $isAjax = true;
 }
 
+
 if ($_xhprof['ext_name'] && $_xhprof['doprofile'] === true) {
     $profiler_namespace = $_xhprof['namespace'];  // namespace for your application
     $xhprof_data = call_user_func($_xhprof['ext_name'].'_disable');
     $xhprof_runs = new XHProfRuns_Default();
+	$wallTime = isset($xhprof_data['main()']['wt']) ? $xhprof_data['main()']['wt'] / 1000 : 0;
+
+	if ($wallTime < $_xhprof['write_time'] && !$_GET[$_xhprof['getparam']]) return;
     $run_id = $xhprof_runs->save_run($xhprof_data, $profiler_namespace, null, $_xhprof);
     if ($_xhprof['display'] === true && PHP_SAPI != 'cli' && !isset($isAjax))
     {

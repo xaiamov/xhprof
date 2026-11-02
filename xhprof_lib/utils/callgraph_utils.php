@@ -20,6 +20,10 @@
  *
  */
 
+function formatPlainSec($time) {
+	return number_format($time / 1000, 3, '.', ' ').' s';
+}
+
 // Supported ouput format
 $xhprof_legal_image_types = array(
     "jpg" => 1,
@@ -377,29 +381,29 @@ function xhprof_generate_dot_script($raw_data, $threshold, $source, $page,
 
     if ($symbol == "main()") {
       $shape = "octagon";
-      $name ="Total: ".($totals["wt"]/1000.0)." ms\\n";
+      $name ="Total: ".formatPlainSec($totals["wt"]/1000)."\\n";
       $name .= addslashes(isset($page) ? $page : $symbol);
     } else {
       $shape = "box";
-      $name = addslashes($symbol)."\\nInc: ". sprintf("%.3f",$info["wt"]/1000) .
-              " ms (" . sprintf("%.1f%%", 100 * $info["wt"]/$totals["wt"]).")";
+      $name = addslashes($symbol)."\\nInc: ". formatPlainSec($info["wt"]/1000) .
+              " (" . sprintf("%.1f%%", 100 * $info["wt"]/$totals["wt"]).")";
     }
     if ($left === null) {
       $label = ", label=\"".$name."\\nExcl: "
-               .(sprintf("%.3f",$info["excl_wt"]/1000.0))." ms ("
+               .(formatPlainSec($info["excl_wt"]/1000.0))." ("
                .sprintf("%.1f%%", 100 * $info["excl_wt"]/$totals["wt"])
                . ")\\n".$info["ct"]." total calls\"";
     } else {
       if (isset($left[$symbol]) && isset($right[$symbol])) {
          $label = ", label=\"".addslashes($symbol).
-                  "\\nInc: ".(sprintf("%.3f",$left[$symbol]["wt"]/1000.0))
-                  ." ms - "
-                  .(sprintf("%.3f",$right[$symbol]["wt"]/1000.0))." ms = "
-                  .(sprintf("%.3f",$info["wt"]/1000.0))." ms".
+                  "\\nInc: ".(formatPlainSec($left[$symbol]["wt"]/1000.0))
+                  ." - "
+                  .(formatPlainSec($right[$symbol]["wt"]/1000.0))." = "
+                  .(formatPlainSec($info["wt"]/1000.0))." ".
                   "\\nExcl: "
-                  .(sprintf("%.3f",$left[$symbol]["excl_wt"]/1000.0))
-                  ." ms - ".(sprintf("%.3f",$right[$symbol]["excl_wt"]/1000.0))
-                   ." ms = ".(sprintf("%.3f",$info["excl_wt"]/1000.0))." ms".
+                  .(formatPlainSec($left[$symbol]["excl_wt"]/1000.0))
+                  ." - ".(formatPlainSec($right[$symbol]["excl_wt"]/1000.0))
+                   ." = ".(formatPlainSec($info["excl_wt"]/1000.0))."".
                   "\\nCalls: ".(sprintf("%.3f",$left[$symbol]["ct"]))." - "
                    .(sprintf("%.3f",$right[$symbol]["ct"]))." = "
                    .(sprintf("%.3f",$info["ct"]))."\"";

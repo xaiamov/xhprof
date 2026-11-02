@@ -49,7 +49,8 @@ class Db_Mysqli extends Db_Abstract
     
     public function query($sql)
     {
-        return mysqli_query($this->linkID, $sql);
+				$res = mysqli_query($this->linkID, $sql);
+        return $res;
     }
     
     public static function getNextAssoc($resultSet)

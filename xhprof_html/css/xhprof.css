@@ -448,25 +448,21 @@ a.callgraph:link {
 }
 
 .overall {
-    //font-family: "Lucida Grande", Sans-Serif;
     font-size: 1.188em;
     color: #333333;
 }
 
 a.invert:link {
-    //font-family: "Lucida Grande", Sans-serif;
     font-size: 0.875em;
     color: #0066ff;
 }
 
 a.invert:hover {
-    //font-family: "Lucida Grande", Sans-serif;
     font-size: 0.875em;
     color: #0066ff;
 }
 
 a.invert:visited {
-    //font-family: "Lucida Grande", Sans-serif;
     font-size: 0.875em;
     color: #0066ff;
 }
